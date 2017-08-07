@@ -17,7 +17,7 @@
       <% @tabs.each do |tab| %>
       <tr>
         <td><%= tab.user.email %></td>
-        <td><%= tab.restaurant_id %></td>
+        <td><%= tab.restaurant.created_at %></td>
         <td>
           <a href="/tabs/<%= tab.id %>" class="btn btn-primary">Show</a>
           <a href="/tabs/<%= tab.id %>/edit" class="btn btn-warning">Edit</a>
