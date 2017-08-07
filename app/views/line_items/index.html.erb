@@ -17,7 +17,7 @@
       <% @line_items.each do |line_item| %>
       <tr>
         <td><%= line_item.restaurant.created_at %></td>
-        <td><%= line_item.menuitem_id %></td>
+        <td><%= line_item.menuitem.created_at %></td>
         <td>
           <a href="/line_items/<%= line_item.id %>" class="btn btn-primary">Show</a>
           <a href="/line_items/<%= line_item.id %>/edit" class="btn btn-warning">Edit</a>
