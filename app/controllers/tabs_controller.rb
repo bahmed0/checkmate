@@ -10,7 +10,7 @@ class TabsController < ApplicationController
   end
 
   def index
-    @tabs = Tab.all
+    @tabs = current_user.tabs.page(params[:page]).per(10)
 
     render("tabs/index.html.erb")
   end
