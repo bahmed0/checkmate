@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Line_item resource:
+  # CREATE
+  get "/line_items/new", :controller => "line_items", :action => "new"
+  post "/create_line_item", :controller => "line_items", :action => "create"
+
+  # READ
+  get "/line_items", :controller => "line_items", :action => "index"
+  get "/line_items/:id", :controller => "line_items", :action => "show"
+
+  # UPDATE
+  get "/line_items/:id/edit", :controller => "line_items", :action => "edit"
+  post "/update_line_item/:id", :controller => "line_items", :action => "update"
+
+  # DELETE
+  get "/delete_line_item/:id", :controller => "line_items", :action => "destroy"
+  #------------------------------
+
   # Routes for the Menu_item resource:
   # CREATE
   get "/menu_items/new", :controller => "menu_items", :action => "new"

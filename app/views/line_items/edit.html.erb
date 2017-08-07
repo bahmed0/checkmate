@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @line_item.errors.any? %>
+  <% @line_item.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Line Item #<%= @line_item.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_line_item/<%= @line_item.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for restaurant_id -->
+      <div class="form-group">
+        <label for="restaurant_id" class="control-label">
+          Restaurant
+        </label>
+
+        <input type="text" id="restaurant_id" name="restaurant_id" placeholder="Restaurant" class="form-control" value="<%= @line_item.restaurant_id %>">
+      </div>
+
+      <!-- Label and input for menuitem_id -->
+      <div class="form-group">
+        <label for="menuitem_id" class="control-label">
+          Menuitem
+        </label>
+
+        <input type="text" id="menuitem_id" name="menuitem_id" placeholder="Menuitem" class="form-control" value="<%= @line_item.menuitem_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Line Item
+      </button>
+      or
+      <a href="/line_items/<%= @line_item.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
