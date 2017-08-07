@@ -20,3 +20,34 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many tabs -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Tabs
+      </li>
+
+      <% @user.tabs.each do |tab| %>
+        <li class="list-group-item">
+          <a href="/tabs/<%= tab.id %>">
+            <%= tab.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/tabs/<%= tab.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/tabs/<%= tab.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_tab/<%= tab.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

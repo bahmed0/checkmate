@@ -20,3 +20,34 @@
     </div>
   </div>
 </div>
+
+<!-- A Menu item has many line_items -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Line Items
+      </li>
+
+      <% @menu_item.line_items.each do |line_item| %>
+        <li class="list-group-item">
+          <a href="/line_items/<%= line_item.id %>">
+            <%= line_item.restaurant_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/line_items/<%= line_item.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/line_items/<%= line_item.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_line_item/<%= line_item.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
