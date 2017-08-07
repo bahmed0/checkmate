@@ -17,12 +17,14 @@
       <a href="/tabs" class="btn btn-primary">
         Back
       </a>
-      <a href="/tabs/<%= @tab.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_tab/<%= @tab.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @tab.user %>
+        <a href="/tabs/<%= @tab.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_tab/<%= @tab.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>
