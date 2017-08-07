@@ -10,7 +10,8 @@ class TabsController < ApplicationController
   end
 
   def index
-    @tabs = current_user.tabs.page(params[:page]).per(10)
+    @q = current_user.tabs.ransack(params[:q])
+      @tabs = @q.result(:distinct => true).includes(:user, :restaurant).page(params[:page]).per(10)
 
     render("tabs/index.html.erb")
   end

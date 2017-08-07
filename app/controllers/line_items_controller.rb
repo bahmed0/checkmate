@@ -1,6 +1,7 @@
 class LineItemsController < ApplicationController
   def index
-    @line_items = LineItem.page(params[:page]).per(10)
+    @q = LineItem.ransack(params[:q])
+    @line_items = @q.result(:distinct => true).includes(:restaurant, :menuitem).page(params[:page]).per(10)
 
     render("line_items/index.html.erb")
   end

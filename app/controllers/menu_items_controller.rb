@@ -1,6 +1,7 @@
 class MenuItemsController < ApplicationController
   def index
-    @menu_items = MenuItem.page(params[:page]).per(10)
+    @q = MenuItem.ransack(params[:q])
+    @menu_items = @q.result(:distinct => true).includes(:line_items).page(params[:page]).per(10)
 
     render("menu_items/index.html.erb")
   end
