@@ -47,8 +47,6 @@ class TabsController < ApplicationController
 
   def update
     @tab = Tab.find(params[:id])
-
-    @tab.user_id = params[:user_id]
     @tab.restaurant_id = params[:restaurant_id]
 
     save_status = @tab.save
