@@ -1,5 +1,5 @@
 class TabsController < ApplicationController
-  before_action :current_user_must_be_tab_user, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_tab_user, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_tab_user
     tab = Tab.find(params[:id])
