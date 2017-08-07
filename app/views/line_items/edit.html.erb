@@ -33,7 +33,7 @@
           Menuitem
         </label>
 
-        <input type="text" id="menuitem_id" name="menuitem_id" placeholder="Menuitem" class="form-control" value="<%= @line_item.menuitem_id %>">
+        <%= select_tag(:menuitem_id, options_from_collection_for_select(MenuItem.all, :id, :created_at, @line_item.menuitem_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
