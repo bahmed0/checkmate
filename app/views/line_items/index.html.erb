@@ -16,8 +16,20 @@
 
       <% @line_items.each do |line_item| %>
       <tr>
-        <td><%= line_item.restaurant.created_at %></td>
-        <td><%= line_item.menuitem.created_at %></td>
+        <td>
+          <% if line_item.restaurant.present? %>
+            <a href="/restaurants/<%= line_item.restaurant.id %>">
+              <%= line_item.restaurant.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if line_item.menuitem.present? %>
+            <a href="/menu_items/<%= line_item.menuitem.id %>">
+              <%= line_item.menuitem.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/line_items/<%= line_item.id %>" class="btn btn-primary">Show</a>
           <a href="/line_items/<%= line_item.id %>/edit" class="btn btn-warning">Edit</a>

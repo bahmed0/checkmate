@@ -16,8 +16,20 @@
 
       <% @tabs.each do |tab| %>
       <tr>
-        <td><%= tab.user.email %></td>
-        <td><%= tab.restaurant.created_at %></td>
+        <td>
+          <% if tab.user.present? %>
+            <a href="/users/<%= tab.user.id %>">
+              <%= tab.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if tab.restaurant.present? %>
+            <a href="/restaurants/<%= tab.restaurant.id %>">
+              <%= tab.restaurant.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/tabs/<%= tab.id %>" class="btn btn-primary">Show</a>
           
